@@ -6,8 +6,12 @@ import (
 
 func main() {
 	m := martini.Classic()
-	m.Get("/", func() string {
-		return "Hello world"
+	m.Post("/signin", Signin)
+	m.Post("/welcome", Welcome)
+	m.Post("/refresh", Refresh)
+	m.Get("/", func() (s string) {
+		s = "Main page"
+		return
 	})
 	m.Run()
 }
